@@ -91,7 +91,7 @@ public class EnterpriseServiceImpl implements EnterpriseService {
     }
 
     for (Enterprise currentItem : completeList) {
-      if (filter.getNameContains() != null && currentItem.getName().contains(filter.getNameContains())) {
+      if (filter.getNameContains() != null && currentItem.getName().toLowerCase().contains(filter.getNameContains().toLowerCase())) {
         if (filter.getEnterpriseTypes() != null && !filter.getEnterpriseTypes().isEmpty()) {
           if (currentItem.getEnterpriseType() != null) {
             Boolean addItem = true;

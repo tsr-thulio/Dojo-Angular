@@ -34,6 +34,21 @@ module.exports = function ($q) {
    	return deferred.promise;
    }
 
+   this.addEnterprise = function(name, employeesNumber, types, website, cnpj){
+      var deferred = $q.defer();
+      var req = {
+         name: name,
+         employeeNumber: employeesNumber,
+         enterpriseType: types,
+         website: website,
+         cnpj: cnpj
+      }
+      gapi.client.rest.addEnterprise(req).execute(function(data){
+         deferred.resolve(data);
+      });
+      return deferred.promise;
+   };
+
 	this.EmployeesRangeEnum = {
 	    UP_TO_10: {name: 'UP_TO_10', message: 'Up to 10 employees', minValue: 0, maxValue: 10},
 	    BETWEEN_10_50: {name: 'BETWEEN_10_50', message: 'Between 10 and 50 employees', minValue: 10, maxValue: 50},
