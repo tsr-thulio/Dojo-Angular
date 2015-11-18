@@ -1,49 +1,13 @@
-module.exports = function (AppService, DojoService, $scope) {
+//remember to inject all dependecies that you will use
+module.exports = function (AppService) {
 
- 	/**
-   * Object context
-   * @type {Object}
-   */
   var context = this;
 
-  this.getAllEnterprises = function(){
-  	DojoService.getAllEnterprises().then(function(data){
-  		context.enterprises = data.items;
-  	});
-  }
-
-  this.findByFilter = function(){
-  	var enterpriseTypes = [];
-	$("input:checkbox[name=type]:checked").each(function(){
-	    enterpriseTypes.push($(this).val());
-	});
-	DojoService.findByFilter(context.enterpriseName, context.employeeSelected, enterpriseTypes).then(function(data){
-		context.enterprises = data.items;
-	});
-  }
-
-  this.getEnterpriseTypes = function(){
-  	DojoService.getEnterpriseTypes().then(function(data){
-  		context.enterpriseTypes = data.items;
-  	});
-  }
-  
-  context.getEnterpriseTypes();
-
-  context.employeeNumberList = DojoService.EmployeesRangeEnum;
-
-  context.getAllEnterprises();
-
-   this.clearFilters = function(){
-   	context.enterpriseName = "";
-   	context.employeeSelected = "";
-   	$("input:checkbox[name=type]:checked").each(function(){
-	    var element = $(this);
-	    element[0].checked=false;
-	});
-   	context.getAllEnterprises();
-   }
-
+  //In this controller we need a method to get all the enterprises in database to fill the table in view,
+  //a method to find the enterprises according the filters selected and update view,
+  //a method to get all possibles enterprise types to create the dynamic checkboxes,
+  //a method to get informations for populate the dropdown employee range,
+  //a method to clear the filters and reset the search.
 
   /**
    * Page title

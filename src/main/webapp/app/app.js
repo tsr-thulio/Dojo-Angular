@@ -27,8 +27,7 @@ angular
     require('./modules/auth'),
     require('./modules/utils'),
     require('./modules/technology'),
-    require('./modules/user'),
-    require('./modules/dojo')
+    require('./modules/user')
   ])
   .config(require('./routes'))
   .constant('API', {

@@ -7,40 +7,40 @@
 	            <h1 class="card-title">Add Enterprise Page</h1>
 	          </div>
 	          <div class="card-section">
-	            <form id="addEnterpriseForm" name="addEnterpriseForm" ng-submit="addController.addEnterprise()" novalidate>
+	            <form id="addEnterpriseForm" name="addEnterpriseForm" novalidate>
 	              <div class="row">
 
 	              	<div class="form-group col-md-7">
 	                  <label for="addInputCnpj">Enterprise CNPJ</label>
-	                  <input id="addInputCnpj" type="text" class="form-control" ui-mask="99.999.999/9999-99" name="addInputCnpj" ng-model="addController.enterpriseCnpj">
+	                  <input id="addInputCnpj" type="text" class="form-control" name="addInputCnpj">
 	                </div>
 
 	                <div class="form-group col-md-7">
 	                  <label for="addInputName">Enterprise Name</label>
-	                  <input id="addInputName" type="text" class="form-control" name="enterpriseName" ng-model="addController.enterpriseName" placeholder="Ex.: CI&T" required="" maxlength="30">
+	                  <input id="addInputName" type="text" class="form-control" name="enterpriseName" placeholder="Ex.: CI&T" required="" maxlength="30">
 	                </div>
 
 	                <div class="form-group col-md-7">
 	                  <label for="addInputEmployee">Enterprise Employees Number</label>
-	                  <input id="addInputEmployee" type="number" class="form-control" name="addInputEmployee" ng-model="addController.enterpriseEmployeesNumber" required="">
+	                  <input id="addInputEmployee" type="number" class="form-control" name="addInputEmployee" required="">
 	                </div>
 
 	                <div class="form-group col-md-12">
 	                  <label>Enterprise Types:</label>
 	                  <div class="checkbox">
-	                    <label id={{"addType"+$index}} ng-repeat="type in addController.enterpriseTypes" class="checkbox-inline"><input type="checkbox" name="addType" value={{type.name}}> {{type.name}}</label>
-	                    <span ng-show="!addController.enterpriseTypes || addController.enterpriseTypes.length==0">No types registered yet...</span>
+	                    <label id="id" class="checkbox-inline"><input type="checkbox" name="addType" value="type value"> type name </label>
+	                    <span>No types registered yet...</span>
 	                  </div>
 	                </div>
 
 	                <div class="form-group col-md-7">
 	                  <label for="addInputWebsite">Enterprise Website</label>
-	                  <input id="addInputWebsite" type="text" class="form-control" name="enterpriseName" ng-model="addController.enterpriseWebsite" placeholder="Ex.: www.ciandt.com" required="">
+	                  <input id="addInputWebsite" type="text" class="form-control" name="enterpriseName" placeholder="Ex.: www.ciandt.com" required="">
 	                </div>
 	                
 	                <div class="form-inline col-md-12 text-right">
 	                  <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add</button>
-	                  <button type="button" class="btn btn-danger" ng-click="addController.cancel()"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+	                  <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
 	                </div>
 	              </div>
 	            </form>

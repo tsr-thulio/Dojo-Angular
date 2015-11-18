@@ -8,18 +8,17 @@
             <h1 class="card-title">Search Filters Page</h1>
           </div>
           <div class="card-section">
-            <form id="searchFiltersForm" name="searchFiltersForm" ng-submit="searchController.findByFilter()" novalidate>
+            <form id="searchFiltersForm" name="searchFiltersForm" novalidate>
               <div class="row">
                 <div class="form-group col-md-7">
                   <label for="enterprise-name">Enterprise Name</label>
-                  <input id="searchInputName" type="text" class="form-control" id="enterprise-name" name="enterpriseName" ng-model="searchController.enterpriseName" placeholder="Ex.: CI&T" required="" maxlength="30">
+                  <input id="searchInputName" type="text" class="form-control" id="enterprise-name" name="enterpriseName" placeholder="Ex.: CI&T" required="" maxlength="30">
                 </div>
                 <div class="form-group col-md-12">
                   <label for="single-button">Employee Range</label><br/>
                   <div class="btn-group" uib-dropdown>
-                    <select class="form-control" ng-model="searchController.employeeSelected">
+                    <select class="form-control">
                       <option label="Select..." value="">Select...</option>
-                      <option ng-repeat="item in searchController.employeeNumberList" label="{{item.message}}" value={{item.name}}>{{item.message}}</option>
                     </select>
                   </div>
                 </div>
@@ -27,13 +26,14 @@
                 <div class="form-group col-md-12">
                   <label>Enterprise Type:</label>
                   <div class="checkbox">
-                    <label id={{"checkInput"+$index}} ng-repeat="type in searchController.enterpriseTypes" class="checkbox-inline"><input type="checkbox" name="type" value={{type.name}}> {{type.name}}</label>
+                    <label class="checkbox-inline"><input type="checkbox" name="type">Type name</label>
+                    <span>No types registered yet...</span>
                   </div>
                 </div>
                 <div class="form-inline col-md-12 text-right">
                   <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span> Search</button>
-                  <a href="#/dojo/new"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add Enterprise</button></a>
-                  <button type="button" class="btn btn-danger" ng-click="searchController.clearFilters()"><span class="glyphicon glyphicon-remove"></span> Clear Filters</button>
+                  <a href="#"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add Enterprise</button></a>
+                  <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Clear Filters</button>
                 </div>
               </div>
             </form>
@@ -59,14 +59,8 @@
                 </tr>
               </thead>
               <tbody>
-                <tr ng-show="searchController.enterprises && searchController.enterprises.length==0">
+                <tr>
                   <td>No records found...</td>
-                </tr>
-                <tr ng-repeat="item in searchController.enterprises">
-                  <td>{{item.name}}</td>
-                  <td>{{item.enterpriseType}}</td>
-                  <td>{{item.employeeNumber}}</td>
-                  <td>{{item.website}}</td>
                 </tr>
               </tbody>
             </table>
