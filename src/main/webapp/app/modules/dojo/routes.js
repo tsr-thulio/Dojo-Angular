@@ -9,19 +9,17 @@ module.exports = function(
    */
   var viewsFolder = 'app/modules/dojo/views/';
 
+  //In urlRouterProvider we tell to angular where he need to go when some url is requested.
+  //the signature is '.when('url comming', 'url to go')' its easy no?! Exact... exact... exact!
   $urlRouterProvider
-    .when('', '/dojo')
-    .when('/', '/dojo');
+  .when('/deLáPraCá', '/deCáPraLá');
 
   $stateProvider
-    .state('root.dojo', {
-      url: '/dojo',
-      controller: 'SearchDojoController as searchController',
-      templateUrl: viewsFolder + 'search-dojo.html'
-    })
-    .state('root.dojo-add', {
-      url: '/dojo/new',
-      controller: 'AddDojoController as addController',
-      templateUrl: viewsFolder + 'add-dojo.html'
+  //The state provider create the states to be redirected, he is composed by a name of the state
+  //and a object with your url, controller, and templateUrl that is the path of your html.
+    .state('root.stateName', {
+      url: '/state',
+      controller: 'YourController as yourAlias',
+      templateUrl: 'path of html'
     })
 };
